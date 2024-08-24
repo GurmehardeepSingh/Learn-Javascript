@@ -113,6 +113,22 @@
 //Arrays in js are always dynamic , which means its size changes automatically when we add new elements,
 // let arr=[1,2,3,4,5]
 // const ar=["Shivansh","Uzaif","Parth","Ritesh","Jacob"]
-// let arr= new Array(1,2,3,4,5)
-
+let arr= new Array(1,2,3,4,5)
 // declare array in console then print that array to see the available prototype methods..
+//Just like vectors in c++ we can simply use push method here for arrays to insert values at end of array and unshift to insert values at start of array.
+//pop removes element from end of array while shift removes froms start
+// arr.push(5)
+// arr.unshift(10)
+console.log(arr)
+// There are several great methods for arrays which we can check with console...
+// console.log(arr.indexOf(3)) // For elements that dont exist in array this will return -1
+const newarr= arr.join() // This function converts elements of an array into string.
+console.log(newarr)
+console.log(typeof(newarr))
+//---------------SLICE AND SPLICE IN AN ARRAY-------------------------
+console.log("Using slice",arr)
+console.log(arr.slice(1,4))// prints elements from one index to another
+console.log("Using splice",arr)
+console.log(arr.splice(3,2)) /* splice deletes the elements with starting index "3" in this case ,followed by how many elements u want to be deleted
+ and it deletes it from original Array*/
+console.log("Using splice",arr)
