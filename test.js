@@ -113,22 +113,53 @@
 //Arrays in js are always dynamic , which means its size changes automatically when we add new elements,
 // let arr=[1,2,3,4,5]
 // const ar=["Shivansh","Uzaif","Parth","Ritesh","Jacob"]
-let arr= new Array(1,2,3,4,5)
+// let arr= new Array(1,2,3,4,5)
 // declare array in console then print that array to see the available prototype methods..
 //Just like vectors in c++ we can simply use push method here for arrays to insert values at end of array and unshift to insert values at start of array.
 //pop removes element from end of array while shift removes froms start
 // arr.push(5)
 // arr.unshift(10)
-console.log(arr)
+// console.log(arr)
 // There are several great methods for arrays which we can check with console...
 // console.log(arr.indexOf(3)) // For elements that dont exist in array this will return -1
-const newarr= arr.join() // This function converts elements of an array into string.
-console.log(newarr)
-console.log(typeof(newarr))
-//---------------SLICE AND SPLICE IN AN ARRAY-------------------------
-console.log("Using slice",arr)
-console.log(arr.slice(1,4))// prints elements from one index to another
-console.log("Using splice",arr)
-console.log(arr.splice(3,2)) /* splice deletes the elements with starting index "3" in this case ,followed by how many elements u want to be deleted
- and it deletes it from original Array*/
-console.log("Using splice",arr)
+// const newarr= arr.join() // This function converts elements of an array into string.
+// console.log(newarr)
+// console.log(typeof(newarr))
+// //---------------SLICE AND SPLICE IN AN ARRAY-------------------------
+// console.log("Using slice",arr)
+// console.log(arr.slice(1,4))// prints elements from one index to another
+// console.log("Using splice",arr)
+// console.log(arr.splice(3,2)) /* splice deletes the elements with starting index "3" in this case ,followed by how many elements u want to be deleted
+//  and it deletes it from original Array*/
+// console.log("Using splice",arr)
+// let arr2=new Array(6,7,8,9,10)
+//This will push arr2 variable as a whole into arr , making it a multidimensional array
+// arr.push(arr2);
+// console.log(arr);
+//concat method combines two arrays into a single array without changing the original elements of array
+// console.log(arr.concat(arr2))
+// (...) is spread operator its function is to break elements in an array into indivisual elements. 
+// below statement can be like this let new_arr=[1,2,3,4,5,6,7,8,9,10]
+// let new_arr= [...arr,...arr2]
+//a method to disolve a multidimensional array is using flat method
+// let new_arr= arr.flat(Infinity)
+// console.log(new_arr)
+// let score1= 100
+// let score2=200
+// let score3=300
+// console.log(Array.of(score1,score2,score3))
+//------------Objects and Events in Javascript-------------------------
+/* Singleton objects means that only a single instance of object exists, that means if we create another object to store data,
+then it will simply overwrite the data in the existing object, which means that we cannot store multiple data like details of,
+different cars,students etc. The use of singleton is case of settings for an application, for example when u create an application and want
+to make changes at one point then those changes in settings apply to whole application due to singleton objects, meaning they share
+the same object reference.*/
+// Way of making object is using object literals, which stores data in pairs of key and value.
+const Object1 = {
+    name: "Gurmehar",
+    age: 19,
+    location: "India",
+    Last_Login:["Monday","Friday"]
+}
+console.log(Object1["location"])
+console.log(Object1.Last_Login)
