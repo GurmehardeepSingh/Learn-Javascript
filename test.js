@@ -155,11 +155,144 @@ different cars,students etc. The use of singleton is case of settings for an app
 to make changes at one point then those changes in settings apply to whole application due to singleton objects, meaning they share
 the same object reference.*/
 // Way of making object is using object literals, which stores data in pairs of key and value.
+// Objects created through object literals are not singleton, while those created through constructors are always singleton i.e object.create() method
+// Symbols are unique data types.
+const Mysym=Symbol("Key 1")
+// const Object1= new Object() this is a singleton object 
 const Object1 = {
-    name: "Gurmehar",
+    fullname:{
+        firstname: "Gurmehardeep",
+        lastname: "Singh"
+    },
     age: 19,
+    [Mysym] : "Key1",
     location: "India",
     Last_Login:["Monday","Friday"]
+ }
+// console.log(Object1["location"])
+// console.log(Object1.Last_Login)
+// console.log(Object1[Mysym])
+// Object1.name="Gds" //Simply change values using assingment operator
+// console.log(Object1.name);
+// Object.freeze(Object1) // We can freeze the object to prevent any change in the values, this  will not throw any error even if we try to change it.
+// Object1.name="Gurmehar"
+// console.log(Object1.name);
+// console.log(Object1);
+// In js we can treat function as variables
+Object1.greeting=function(){
+    console.log("Hello");
+    
 }
-console.log(Object1["location"])
-console.log(Object1.Last_Login)
+Object1.greeting2=function(){
+    console.log(`${this.name}`);
+    
+}
+// console.log(Object1.greeting(),Object1.greeting2())
+//Combining two objects with assign() method
+let obj1={
+    1:"a",2:"b"
+}
+let obj2={
+    3:"c",4:"d"
+}
+//Object.assign(target,sourcce)
+// let obj3=Object.assign({},obj1,obj2) //{} acts as the target, rest acts as source,if we dont use {} then obj1 will become the target
+//another operator is the one we used with array, the spread operator (...)
+let obj3={...obj1,...obj2}
+console.log(obj3);
+//when dealing with databases we will get arrays of objects so to access keys and values we can simply store them in another array and loop using :
+console.log(Object.values(obj3))
+console.log(Object.keys(obj3))
+// another thing to keep in mind while looping if the key we are looking for doesnt even exist, which can cause crashes so to deal with that simply check
+console.log(Object.hasOwnProperty('nameee')); // returns result in boolean
+// Like arrays just simply declare an object and call it on console in browser to view its methods.
+// Object de-structure and JSON api introduction
+/* Lets say we want to use some values in objects multiple times soo instead of typing object1.key again and again we can simply de-struct it lik this:
+    const {key:Name of variable} = Object 
+*/
+const {fullname:Name}= Object1
+console.log(Name)
+// JSON API
+/*
+API's look like objects without name but their keys are written as strings.
+{
+  "name":"Gds",
+  "age":19
+}
+  // Array of objects
+[
+  {},
+  {}
+]
+  we can get an example of api from randomuser.me and use a JSON formatter to understand it
+  EXAMPLE OF API
+  
+  {
+    "results": [
+        {
+            "gender": "male",
+            "name": {
+                "title": "Mr",
+                "first": "Meeuwis",
+                "last": "Snellen"
+            },
+            "location": {
+                "street": {
+                    "number": 3881,
+                    "name": "Ivoordreef"
+                },
+                "city": "Vrijhoeve-Capelle",
+                "state": "Friesland",
+                "country": "Netherlands",
+                "postcode": "2074 BM",
+                "coordinates": {
+                    "latitude": "32.6310",
+                    "longitude": "-136.7614"
+                },
+                "timezone": {
+                    "offset": "-10:00",
+                    "description": "Hawaii"
+                }
+            },
+            "email": "meeuwis.snellen@example.com",
+            "login": {
+                "uuid": "9a16ce33-0b58-42c9-8f66-780d418acad4",
+                "username": "happygorilla521",
+                "password": "zzzzzzzz",
+                "salt": "aTvFkVMH",
+                "md5": "8dec6a9569d7ddc813c6d0b572a77c6f",
+                "sha1": "d902dda4116655ed293b938dc8cee01bcf60ff6d",
+                "sha256": "975df4fabb2caf8335ebaef8696f391f65f33e6a1b8744534b7f98f26ce03940"
+            },
+            "dob": {
+                "date": "1974-06-18T04:11:27.404Z",
+                "age": 50
+            },
+            "registered": {
+                "date": "2002-07-08T18:01:05.724Z",
+                "age": 22
+            },
+            "phone": "(020) 5676821",
+            "cell": "(06) 45963587",
+            "id": {
+                "name": "BSN",
+                "value": "20312251"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/83.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/83.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/83.jpg"
+            },
+            "nat": "NL"
+        }
+    ],
+    "info": {
+        "seed": "ef62a1a2d07a080f",
+        "results": 1,
+        "page": 1,
+        "version": "1.4"
+    }
+}
+    we convert these api to objects before we can use them.
+  */
+//--------------------------------------------------------------------------------------------------------------------------------------------
