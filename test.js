@@ -212,7 +212,7 @@ console.log(Object.hasOwnProperty('nameee')); // returns result in boolean
 */
 const {fullname:Name}= Object1
 console.log(Name)
-// JSON API
+//---------------------- JSON API Intro ---------------------------------------------
 /*
 API's look like objects without name but their keys are written as strings.
 {
@@ -296,3 +296,54 @@ API's look like objects without name but their keys are written as strings.
     we convert these api to objects before we can use them.
   */
 //--------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------- Functions --------------------------------------------------
+//function SayMyName (username /* preset value for username with username = "name" and when arguments are sent the value is overwritten*/) {
+  /*  if(!username)// if(username===undefined)
+    {
+        console.log("Please enter a username");
+        return
+        
+    }
+    return `${username} Just logged in`
+}
+function Add_two_numbers(num1,num2) {
+    let num3=num1+num2
+    console.log(num3);
+    return num3
+}
+SayMyName //Reference to function
+console.log(SayMyName()) // Calling the function // returns undefined
+console.log(SayMyName("Gurmehardeep Singh"))
+Add_two_numbers(3,4) // 7
+Add_two_numbers(3,"4")// "34"
+Add_two_numbers(3,"a")// "a"
+Add_two_numbers(3,null) // 3
+Add_two_numbers(3,undefined)// NaN
+const sum=Add_two_numbers(6,4)
+console.log("Value of sum is ",sum);// 10
+*/
+// Shopping cart problem, when we dont know how many items are there
+function Calculate(...num) { //Yes ... is also the spread operator (rest operator in this case used to group into array)
+    let sum=0
+    for(let i=0;i<num.length;i++)
+    {
+        sum+=num[i]
+    }
+        return sum
+}
+console.log(`Your total amount is ${Calculate(1,2,3,4,5)}`);
+const user ={
+    username: "Gds",
+    price:1000
+}
+function HandleObjects(anyobject) {
+    return `User ${anyobject.username} has logged in with price of ${anyobject.price}`
+}
+console.log(HandleObjects(user)); 
+/* Another way to pass object
+console.log(HandleObjects({
+  username: "gds",
+  price:1000
+  }
+  )
+  ) */
