@@ -323,23 +323,23 @@ const sum=Add_two_numbers(6,4)
 console.log("Value of sum is ",sum);// 10
 */
 // Shopping cart problem, when we dont know how many items are there
-function Calculate(...num) { //Yes ... is also the spread operator (rest operator in this case used to group into array)
-    let sum=0
-    for(let i=0;i<num.length;i++)
-    {
-        sum+=num[i]
-    }
-        return sum
-}
-console.log(`Your total amount is ${Calculate(1,2,3,4,5)}`);
-const user ={
-    username: "Gds",
-    price:1000
-}
-function HandleObjects(anyobject) {
-    return `User ${anyobject.username} has logged in with price of ${anyobject.price}`
-}
-console.log(HandleObjects(user)); 
+// function Calculate(...num) { //Yes ... is also the spread operator (rest operator in this case used to group into array)
+//     let sum=0
+//     for(let i=0;i<num.length;i++)
+//     {
+//         sum+=num[i]
+//     }
+//         return sum
+// }
+// console.log(`Your total amount is ${Calculate(1,2,3,4,5)}`);
+// const user ={
+//     username: "Gds",
+//     price:1000
+// }
+// function HandleObjects(anyobject) {
+//     return `User ${anyobject.username} has logged in with price of ${anyobject.price}`
+// }
+// console.log(HandleObjects(user)); 
 /* Another way to pass object
 console.log(HandleObjects({
   username: "gds",
@@ -347,3 +347,28 @@ console.log(HandleObjects({
   }
   )
   ) */
+ //--------------------- Scope Level and mini hoisting --------------------------------------
+// The scope of variable is limnited to the block in which it is declared, the reason we stopped using var is because its problem with scope
+//  const nam="Gds"
+//   if(true)
+//   {
+//     const msg="Welcome "
+//     if(true)
+//     {var hel="Hello"
+//         const greet=", Greetings."
+//         console.log(msg+nam+greet)
+//     }
+//     //console.log(greet) // This will throw an error because the scope of greet is only in the aboce if block
+//   }
+//   console.log(hel) // var doesnt follow the rules of scope
+
+  //------------------ Two ways of declaring functions (why)-----------------------------
+console.log(hello()); // we can call the function declared using method 1 anywhere in the program, even before where it was declared
+// console.log(user("Gds")) // We cannot access this function declared using method 2 before its initialization
+function hello(){ // Method 1
+    return "Hello"
+}
+// const user=function(char){ // Method 2
+//     return char
+// }
+
