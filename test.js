@@ -157,18 +157,18 @@ the same object reference.*/
 // Way of making object is using object literals, which stores data in pairs of key and value.
 // Objects created through object literals are not singleton, while those created through constructors are always singleton i.e object.create() method
 // Symbols are unique data types.
-const Mysym=Symbol("Key 1")
-// const Object1= new Object() this is a singleton object 
-const Object1 = {
-    fullname:{
-        firstname: "Gurmehardeep",
-        lastname: "Singh"
-    },
-    age: 19,
-    [Mysym] : "Key1",
-    location: "India",
-    Last_Login:["Monday","Friday"]
- }
+// const Mysym=Symbol("Key 1")
+// // const Object1= new Object() this is a singleton object 
+// const Object1 = {
+//     fullname:{
+//         firstname: "Gurmehardeep",
+//         lastname: "Singh"
+//     },
+//     age: 19,
+//     [Mysym] : "Key1",
+//     location: "India",
+//     Last_Login:["Monday","Friday"]
+//  }
 // console.log(Object1["location"])
 // console.log(Object1.Last_Login)
 // console.log(Object1[Mysym])
@@ -179,39 +179,39 @@ const Object1 = {
 // console.log(Object1.name);
 // console.log(Object1);
 // In js we can treat function as variables
-Object1.greeting=function(){
-    console.log("Hello");
+// Object1.greeting=function(){
+//     console.log("Hello");
     
-}
-Object1.greeting2=function(){
-    console.log(`${this.name}`);
+// }
+// Object1.greeting2=function(){
+//     console.log(`${this.name}`);
     
-}
+// }
 // console.log(Object1.greeting(),Object1.greeting2())
 //Combining two objects with assign() method
-let obj1={
-    1:"a",2:"b"
-}
-let obj2={
-    3:"c",4:"d"
-}
+// let obj1={
+//     1:"a",2:"b"
+// }
+// let obj2={
+//     3:"c",4:"d"
+// }
 //Object.assign(target,sourcce)
 // let obj3=Object.assign({},obj1,obj2) //{} acts as the target, rest acts as source,if we dont use {} then obj1 will become the target
 //another operator is the one we used with array, the spread operator (...)
-let obj3={...obj1,...obj2}
-console.log(obj3);
-//when dealing with databases we will get arrays of objects so to access keys and values we can simply store them in another array and loop using :
-console.log(Object.values(obj3))
-console.log(Object.keys(obj3))
-// another thing to keep in mind while looping if the key we are looking for doesnt even exist, which can cause crashes so to deal with that simply check
-console.log(Object.hasOwnProperty('nameee')); // returns result in boolean
-// Like arrays just simply declare an object and call it on console in browser to view its methods.
-// Object de-structure and JSON api introduction
-/* Lets say we want to use some values in objects multiple times soo instead of typing object1.key again and again we can simply de-struct it lik this:
-    const {key:Name of variable} = Object 
-*/
-const {fullname:Name}= Object1
-console.log(Name)
+// let obj3={...obj1,...obj2}
+// console.log(obj3);
+// //when dealing with databases we will get arrays of objects so to access keys and values we can simply store them in another array and loop using :
+// console.log(Object.values(obj3))
+// console.log(Object.keys(obj3))
+// // another thing to keep in mind while looping if the key we are looking for doesnt even exist, which can cause crashes so to deal with that simply check
+// console.log(Object.hasOwnProperty('nameee')); // returns result in boolean
+// // Like arrays just simply declare an object and call it on console in browser to view its methods.
+// // Object de-structure and JSON api introduction
+// /* Lets say we want to use some values in objects multiple times soo instead of typing object1.key again and again we can simply de-struct it lik this:
+//     const {key:Name of variable} = Object 
+// */
+// const {fullname:Name}= Object1
+// console.log(Name)
 //---------------------- JSON API Intro ---------------------------------------------
 /*
 API's look like objects without name but their keys are written as strings.
@@ -363,12 +363,63 @@ console.log(HandleObjects({
 //   console.log(hel) // var doesnt follow the rules of scope
 
   //------------------ Two ways of declaring functions (why)-----------------------------
-console.log(hello()); // we can call the function declared using method 1 anywhere in the program, even before where it was declared
+// console.log(hello()); // we can call the function declared using method 1 anywhere in the program, even before where it was declared
+// function hello(){ // Method 1
+//     return "Hello"
+// }
 // console.log(user("Gds")) // We cannot access this function declared using method 2 before its initialization
-function hello(){ // Method 1
-    return "Hello"
-}
 // const user=function(char){ // Method 2
 //     return char
 // }
+//------------------------------ THIS AND ARROW FUNCTION IN JAVASCRIPT ---------------------------
+// const user={
+//     setdetail(name,age){
+//     this.name=name,
+//     this.age=age
+//     },
+//     showdetail(){
+//         console.log(this) // this prints the data in object form
+//         console.log(`Welcome ${this.name} of age ${this.age}`)
+//     }
+// }
+// const u1=Object.create(user)
+// u1.setdetail("Gds",18) 
+// const u2=Object.create(user)
+// u2.setdetail("Ritesh",19)
+// u1.showdetail()
+// u2.showdetail()
+// function hello(){
+//     console.log(this);
+// }
+// console.log(hello()); //shows ton of values about the function
+
+// const hell=() =>{
+//     const nam=5;
+//     console.log("inside arrow function",this); // this prints {} cuz in arrow function it represents the global scope this when used in console it prints windows
+// }
+// console.log(hell());
+
+// const sum=(num1,num2) => (num1+num2) // implicit return this is way too useful in react
+// console.log(sum(3,4));
+
+// const sub=(num1,num2) =>{
+//     return (num1-num2) //explicit return 
+// }
+// console.log(sub(9,5));
+// ----------- IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) ------------------------------------------
+// to prevent pollution from global scope and to declare a personal scope and immediately execute function withoit calling explicitly
+
+/*This is named IIFE*/(function connect(){
+console.log("Connected");
+})(); //in IIFE concept we need to specify end of context with ; otherwise the next IIFE wont execute
+ //outer () is for definition and at the end () is for execution
+ (function connect2(){
+    console.log("Connected2");
+})();
+((name)=>{
+    console.log(`${name} Connected3`);
+    
+})("Gds") // pass argument for arrow function
+    
+
 
