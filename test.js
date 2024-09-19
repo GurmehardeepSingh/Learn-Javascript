@@ -488,6 +488,18 @@ call stack working
 we can test this out in inspect in browser by going to sources
 */
  //----------------------------------- HIGH ORDER LOOPS FOR ARRAY --------------------------------------------
-    
+ // These loops are specifically for easy traversal of arrays,strings or any iteration.
+// "For of" Loop     
+const arr=[1,2,6,4,5,6]
+for (const i of arr) { // "for of" i takes the values of elements of the array 
+    console.log(i);
+}
+
+const hello="Hello World"
+for (const greet of hello) {
+
+        console.log(`Word is ${greet}`);
+        
+}
 
 
