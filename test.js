@@ -409,17 +409,85 @@ console.log(HandleObjects({
 // ----------- IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) ------------------------------------------
 // to prevent pollution from global scope and to declare a personal scope and immediately execute function withoit calling explicitly
 
-/*This is named IIFE*/(function connect(){
-console.log("Connected");
-})(); //in IIFE concept we need to specify end of context with ; otherwise the next IIFE wont execute
- //outer () is for definition and at the end () is for execution
- (function connect2(){
-    console.log("Connected2");
-})();
-((name)=>{
-    console.log(`${name} Connected3`);
+// /*This is named IIFE*/(function connect(){
+// console.log("Connected");
+// })(); //in IIFE concept we need to specify end of context with ; otherwise the next IIFE wont execute
+//  //outer () is for definition and at the end () is for execution
+//  (function connect2(){
+//     console.log("Connected2");
+// })();
+// ((name)=>{
+//     console.log(`${name} Connected3`);
     
-})("Gds") // pass argument for arrow function
+// })("Gds") // pass argument for arrow function
+
+//---------------------- How does javascript execute programs ------------
+/*
+----------------------------------
+example code:
+let a=10
+let b=15
+
+function sum(a,b)
+{
+  return a+b
+}
+
+let total1=sum(a,b)
+let total2=sum(10,12)
+-------------------------------------
+Global Execution phase
+When ever a program is executed in js, it first initializes a global enviroment and store data in "this"
+Memory Phase
+All variablefs are initialized with undefined whilst functions are intialized with their respective definition
+a = undefined
+b = undefined
+Execution Phase
+now the variables are assigned with the provided values.
+function bodies arent changed cuz its just the definition and not call
+a = 10
+b = 15 // values are assigned in execution phase
+
+for function calls
+total1 = sum(a,b) It creates a new execution context(a new variable enviroment + execution thread)
+and then there will be a seperate memory phase and execution phase for the function in that execution context
+
+the phases in this new context will involve variables which are defined in function, passed as arguments with function call
+the value which is returned is sent back to global context
+when the function is completely executed the execution context is automatically deleted.
+
+call stack working
+|                        |
+|                        | 
+|                        |
+|Global execution context|
+|________________________|
+
+|                        |
+|                        | 
+|                        | function call to sum()      
+|        sum()           |  
+|Global execution context|
+|________________________|
+
+|                        |
+|                        | 
+|                        | 
+|                        | sum() execution completed (sum() pops from stack)
+|                        |
+|Global execution context|
+|________________________|
+
+|                        |
+|                        | 
+|      sum2()            |
+|      sum1()            | sum2() is called inside sum1() function
+|Global execution context|
+|________________________|
+
+we can test this out in inspect in browser by going to sources
+*/
+ //----------------------------------- HIGH ORDER LOOPS FOR ARRAY --------------------------------------------
     
 
 
