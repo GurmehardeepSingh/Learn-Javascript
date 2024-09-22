@@ -490,16 +490,81 @@ we can test this out in inspect in browser by going to sources
  //----------------------------------- HIGH ORDER LOOPS FOR ARRAY --------------------------------------------
  // These loops are specifically for easy traversal of arrays,strings or any iteration.
 // "For of" Loop     
-const arr=[1,2,6,4,5,6]
-for (const i of arr) { // "for of" i takes the values of elements of the array 
-    console.log(i);
-}
+// const arr=[1,2,6,4,5,6]
+// for (const i of arr) { // "for of" i takes the values of elements of the array 
+//     console.log(i);
+// }
 
-const hello="Hello World"
-for (const greet of hello) {
+// const hello="Hello World"
+// for (const greet of hello) {
 
-        console.log(`Word is ${greet}`);
+//         console.log(`Word is ${greet}`);
         
+// }
+//----------------------------- MAPS----------------------------
+// Maps are a collection of key-value pairs with no duplicate keys
+const map = new Map()
+map.set('IN','India')
+map.set('USA','United States Of America')
+map.set('Fr','France')
+map.set('Fr','France')
+// Duplicate keys wont be visible in map and order is retained
+console.log(map);
+
+for (const [key, value] of map) {
+    console.log(`${key} :- ${value}`);
+    
 }
+// We cannot iterate objects with forof loop so we use forin loop 
+// Forin Loop always prints keys/Indexes
+const myObj={
+    JS : 'Javascript',
+    CPP: 'C++',
+    RB: 'Ruby'
+}
+for (const key in myObj) {
+    console.log(`${key}:-${myObj[key]}`);    
+}
+const arr=['a','b','c','d','e','f']
+for (const key in arr) {
+    console.log(`arr[${key}] :- ${arr[key]}`);
+    
+}
+// Forin loop cannot iterate map
 
-
+// Foreach Loop 
+const coding=["js","python","C++","Ruby","Rust"]
+// coding.forEach(element => {
+//     console.log(element);
+    
+// });
+function Printme(data) {
+    console.log(data);    
+}
+// coding.forEach(Printme); // automatically passes data and prints
+coding.forEach((item,index,arr) =>{
+  console.log(`${item} ---- ${index} ---- ${arr}`);
+// items prints data only
+// index prints the keys
+// arr prints the whole array
+})
+// Array with objects
+const Objarray=
+[
+{
+    Name:"Gds",
+    Age: 20
+},
+{
+    Name:"Ritesh",
+    Age: 21
+},
+{
+  Name:"Jacob",
+  Age:20
+}
+]
+Objarray.forEach((item)=>{
+    console.log(item.Name,item.Age);
+    
+})
