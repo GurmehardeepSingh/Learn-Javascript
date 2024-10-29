@@ -1,4 +1,3 @@
-
 // // console.log("Hello World")
 // // const Name="GDS"
 // // let age="20"
@@ -403,7 +402,7 @@ console.log(HandleObjects({
 // console.log(sum(3,4));
 
 // const sub=(num1,num2) =>{
-//     return (num1-num2) //explicit return 
+//     return (num1-num2) //explicit return because {} defines the scope of function
 // }
 // console.log(sub(9,5));
 // ----------- IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) ------------------------------------------
@@ -501,70 +500,125 @@ we can test this out in inspect in browser by going to sources
 //         console.log(`Word is ${greet}`);
         
 // }
-//----------------------------- MAPS----------------------------
-// Maps are a collection of key-value pairs with no duplicate keys
-const map = new Map()
-map.set('IN','India')
-map.set('USA','United States Of America')
-map.set('Fr','France')
-map.set('Fr','France')
-// Duplicate keys wont be visible in map and order is retained
-console.log(map);
+// //----------------------------- MAPS----------------------------
+// // Maps are a collection of key-value pairs with no duplicate keys
+// const map = new Map()
+// map.set('IN','India')
+// map.set('USA','United States Of America')
+// map.set('Fr','France')
+// map.set('Fr','France')
+// // Duplicate keys wont be visible in map and order is retained
+// console.log(map);
 
-for (const [key, value] of map) {
-    console.log(`${key} :- ${value}`);
+// for (const [key, value] of map) {
+//     console.log(`${key} :- ${value}`);
     
-}
-// We cannot iterate objects with forof loop so we use forin loop 
-// Forin Loop always prints keys/Indexes
-const myObj={
-    JS : 'Javascript',
-    CPP: 'C++',
-    RB: 'Ruby'
-}
-for (const key in myObj) {
-    console.log(`${key}:-${myObj[key]}`);    
-}
-const arr=['a','b','c','d','e','f']
-for (const key in arr) {
-    console.log(`arr[${key}] :- ${arr[key]}`);
+// }
+// // We cannot iterate objects with forof loop so we use forin loop 
+// // Forin Loop always prints keys/Indexes
+// const myObj={
+//     JS : 'Javascript',
+//     CPP: 'C++',
+//     RB: 'Ruby'
+// }
+// for (const key in myObj) {
+//     console.log(`${key}:-${myObj[key]}`);    
+// }
+// const arr=['a','b','c','d','e','f']
+// for (const key in arr) {
+//     console.log(`arr[${key}] :- ${arr[key]}`);
     
-}
-// Forin loop cannot iterate map
+// }
+// // Forin loop cannot iterate map
 
-// Foreach Loop 
-const coding=["js","python","C++","Ruby","Rust"]
-// coding.forEach(element => {
-//     console.log(element);
+// // Foreach Loop 
+// const coding=["js","python","C++","Ruby","Rust"]
+// // coding.forEach(element => {
+// //     console.log(element);
     
-// });
-function Printme(data) {
-    console.log(data);    
-}
-// coding.forEach(Printme); // automatically passes data and prints
-coding.forEach((item,index,arr) =>{
-  console.log(`${item} ---- ${index} ---- ${arr}`);
-// items prints data only
-// index prints the keys
-// arr prints the whole array
+// // });
+// function Printme(data) {
+//     console.log(data);    
+// }
+// // coding.forEach(Printme); // automatically passes data and prints
+// coding.forEach((item,index,arr) =>{
+//   console.log(`${item} ---- ${index} ---- ${arr}`);
+// // items prints data only
+// // index prints the keys
+// // arr prints the whole array
+// })
+// // Array with objects
+// const Objarray=
+// [
+// {
+//     Name:"Gds",
+//     Age: 20
+// },
+// {
+//     Name:"Ritesh",
+//     Age: 21
+// },
+// {
+//   Name:"Jacob",
+//   Age:20
+// }
+// ]
+// Objarray.forEach((item)=>{
+//     console.log(item.Name,item.Age);
+    
+// })
+//---------------- FILTER AND MAP ---------------------------
+const myNums=[1,2,3,4,5,6,7,8,9,10]
+
+const returnNums= myNums.forEach((nums) => {
+  console.log(nums);
+  return nums
+}) // This will not return and returnNums will print undefined
+console.log(returnNums);
+/* now if we want to store values using forEach, just create another array use push method*/
+const returnNums2= myNums.filter((nums) => {
+  console.log(nums);
+  return nums >4
+  // can also return after checking condition for specific objects for example  return bk.name==="Harry Potter";
 })
-// Array with objects
-const Objarray=
-[
-{
-    Name:"Gds",
-    Age: 20
-},
-{
-    Name:"Ritesh",
-    Age: 21
-},
-{
-  Name:"Jacob",
-  Age:20
-}
+console.log(returnNums2); // this returns
+// const returnNums2= myNums.map((nums) => {
+//   console.log(nums);
+//   return nums >4
+//   // can also return after checking condition for specific objects for example  return bk.name==="Harry Potter";
+// })
+// console.log(returnNums2); // this returns 
+//------ CHAINING ---------------
+// const returnNums3= myNums.filter((nums) => {
+//   console.log(nums);
+//   return nums >4
+//   // can also return after checking condition for specific objects for example  return bk.name==="Harry Potter";
+// }) .map((nums)=> nums*=10) // This chain takes returned value of previous call
+// console.log(returnNums3);
+let initial=10
+const returnNums3= myNums.reduce((sum,num) => {
+   return sum+num},initial
+// During first iteration it takes the initial value into sum and then after that it store sum+num in sum... kind of like do while
+)
+console.log(returnNums3);
+// Another example
+const Shoppingcart=[
+  {
+    item:"JS",
+    price:999
+  },
+  {
+    item:"Data science",
+    price:99
+  },
+  {
+    item:"C++",
+    price:9
+  },
+  {
+    item:"C#",
+    price:20
+  },
 ]
-Objarray.forEach((item)=>{
-    console.log(item.Name,item.Age);
-    
-})
+let price=Shoppingcart.reduce((acc,item)=> acc+item.price,0)
+console.log(price);
