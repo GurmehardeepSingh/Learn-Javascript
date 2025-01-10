@@ -419,7 +419,12 @@ console.log(HandleObjects({
 //     console.log(`${name} Connected3`);
     
 // })("Gds") // pass argument for arrow function
-
+// ------------------ CALLBACK FUNCTION ---------------------------------
+// app.listen(port,()=>{
+//   console.log(`Server is running on PORT ${port}`);
+//   }) in callback function a function is provided as an argument, ensuring when the listen function 
+// startSession, a feedback that it is working is provided. It is used when we need some kind of feedback
+// to confirm if the Server(in this case) started or not
 //---------------------- How does javascript execute programs ------------
 /*
 ----------------------------------
